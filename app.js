@@ -1,11 +1,11 @@
-// ------------------------------- Global selectors and variables ------------------------------- 
+// ------------------------------- Global selectors and variables ------------------------------- //
 const colorDivs = document.querySelectorAll('.color');
 const generateBtn = document.querySelector('.generate');
 const sliders = document.querySelectorAll('input[type="range"]');
 const currentHexes = document.querySelector('.color h2');
 let initialColors;
 
-// ------------------------------- Event listeners ------------------------------- 
+// ------------------------------- Event listeners ------------------------------- //
 
 sliders.forEach(slider => {
     slider.addEventListener('input', hslControls);
@@ -17,7 +17,7 @@ colorDivs.forEach((div, index) => {
     });
 });
 
-// ------------------------------- Functions ------------------------------- 
+// ------------------------------- Functions ------------------------------- //
 
 // Generating colors using chroma.js
 function generateHex() {
@@ -26,9 +26,14 @@ function generateHex() {
 };
 
 function randomColors() {
+
+    initialColors = [];
+
     colorDivs.forEach((div, index) => {
         const hexText = div.children[0];
         const randomColor = generateHex();
+
+        initialColors.push(chroma(randomColor).hex());
 
         // Add color to background
         div.style.backgroundColor = randomColor;
@@ -83,7 +88,7 @@ function hslControls(e) {
     const brightness = sliders[1];
     const saturation = sliders[2];
 
-    const bgColor = colorDivs[index].querySelector('h2').innerText;
+    const bgColor = initialColors[index];
 
     let color = chroma(bgColor)
         .set("hsl.s", saturation.value)
