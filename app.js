@@ -84,7 +84,7 @@ function hslControls(e) {
     const index = 
         e.target.getAttribute('data-bright') || 
         e.target.getAttribute('data-sat') || 
-        e.target.getAttribute('data-hue');
+        e.target.getAttribute('data-hue')
     
     let sliders = e.target.parentElement.querySelectorAll('input[type="range"]');
     const hue = sliders[0];
@@ -99,6 +99,9 @@ function hslControls(e) {
         .set("hsl.h", hue.value)
 
     colorDivs[index].style.backgroundColor = color;
+
+    // Colorize inputs (sliders)
+    colorizeSliders(color, hue, brightness, saturation);
 };
 
 function updateTextUI(index) {
