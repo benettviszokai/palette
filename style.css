@@ -46,14 +46,14 @@ path, i, svg {
     position: absolute;
     bottom: 0%;
     background-color: rgb(255, 255, 255);
-    opacity: 0;
+    /* opacity: 0; */
     padding: 1rem;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    pointer-events: none;
+    /* pointer-events: none; */
 
     /* Adjustment class */
-    transform: translateY(100px);
+    /* transform: translateY(100px); */
     transition: all 0.5s ease-in-out;
 }
 
@@ -75,6 +75,15 @@ path, i, svg {
     background-color: rgb(73, 73, 73);
     cursor: pointer;
     font-weight: 700;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 1rem 0rem;
+    position: relative;
+    border-radius: 1rem;
+    cursor: pointer;
 }
 
 .controls {
